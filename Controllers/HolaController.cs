@@ -7,10 +7,13 @@ namespace ActividadPractica1.Controllers
     public class HolaController : Controller
     {
 
-
-        public IActionResult Index()
+        [HttpGet("saludo")]
+        public IActionResult Saludo(string nombre)
         {
-            return View();
+            return Ok(new
+            {
+                mensaje = $"Bienvenido {nombre}"
+            });
         }
     }
 }
