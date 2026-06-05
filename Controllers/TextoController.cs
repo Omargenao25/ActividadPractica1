@@ -34,5 +34,24 @@ namespace ActividadPractica1.Controllers
                 vocales
             });
         }
-    }
+
+
+        [HttpGet("invertir")]
+        public IActionResult Invertir([FromQuery] string texto)
+        {
+            if (texto is null)
+            {
+                return BadRequest(new { error = "Debe enviar el texto." });
+            }
+
+            var caracteres = texto.ToCharArray();
+            Array.Reverse(caracteres);
+
+            return Ok(new
+            {
+                texto,
+                invertido = new string(caracteres)
+            });
+        }
+}
 }
