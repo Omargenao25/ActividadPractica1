@@ -14,6 +14,25 @@ namespace ActividadPractica1.Controllers
             string[] palabras = texto.Split(' ');
 
             int vocales = 0;
+
+            foreach (char letra in texto.ToLower())
+            {
+                if (letra == 'a' ||
+                    letra == 'e' ||
+                    letra == 'i' ||
+                    letra == 'o' ||
+                    letra == 'u')
+                {
+                    vocales++;
+                }
+            }
+
+            return Ok(new
+            {
+                palabras = palabras.Length,
+                caracteres,
+                vocales
+            });
         }
-}
+    }
 }
