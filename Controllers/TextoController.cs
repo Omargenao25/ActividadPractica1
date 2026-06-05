@@ -35,23 +35,20 @@ namespace ActividadPractica1.Controllers
             });
         }
 
-
         [HttpGet("invertir")]
-        public IActionResult Invertir([FromQuery] string texto)
+        public IActionResult Invertir(string texto)
         {
-            if (texto is null)
-            {
-                return BadRequest(new { error = "Debe enviar el texto." });
-            }
+            string[] palabras = texto.Split(' ');
 
-            var caracteres = texto.ToCharArray();
-            Array.Reverse(caracteres);
+            Array.Reverse(palabras);
+
+            string resultado = string.Join(" ", palabras);
 
             return Ok(new
             {
-                texto,
-                invertido = new string(caracteres)
+                textoOriginal = texto,
+                textoInvertido = resultado
             });
         }
-}
+    }
 }
