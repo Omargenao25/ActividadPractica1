@@ -15,4 +15,7 @@ namespace ActividadPractica1.Controllers
 
             int segundosRestantes = segundos % 60;
 
-            string formato = $"{horas:D2}: {minutos:D2}:{segundosRestantes:D2}";
+         
+        }
+    }
+}
