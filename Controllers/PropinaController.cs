@@ -12,6 +12,14 @@ namespace ActividadPractica1.Controllers
             decimal propina = monto * porcentaje / 100;
 
             decimal total = monto + propina;
+
+            return Ok(new
+            {
+                monto,
+                porcentaje,
+                propina,
+                total
+            });
         }
 }
 }
