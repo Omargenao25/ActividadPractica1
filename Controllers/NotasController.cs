@@ -2,11 +2,15 @@
 
 namespace ActividadPractica1.Controllers
 {
-    public class NotasController : Controller
+    [ApiController]
+    [Route("api/notas")]
+    public class NotasController : ControllerBase
     {
-        public IActionResult Index()
+        [HttpPost("estadisticas")]
+        public IActionResult Estadisticas(NotasRequest datos)
         {
-            return View();
+            double promedio = datos.Notas.Average();
+
         }
     }
 }
